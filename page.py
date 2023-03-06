@@ -18,7 +18,6 @@ def chat():
     chats=str(request.forms.chat)
     with sqlite3.connect("chat.db") as conn:
         cur=conn.cursor()
-        cur.execute('CREATE TABLE chat_room(id int, title varchar(1024), data varchar(1024))')
         cur.execute(f"INSERT INTO chat_room VALUES(1,'{name}','{chats}')")
         conn.commit()
     with sqlite3.connect("chat.db") as conn:
